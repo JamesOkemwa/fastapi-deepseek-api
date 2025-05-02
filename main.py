@@ -34,6 +34,10 @@ def translate_text(text, target_language):
 
     return completion.choices[0].message.content
 
+@app.get("/")
+async def root():
+    return {"message": "Use the /translate endpoint to translate text"}
+
 
 @app.post("/translate")
 async def translate(request: TranslationRequest):
